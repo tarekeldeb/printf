@@ -14,7 +14,6 @@ int getWidth(const char *format, int *i, va_list list)
 	for (curri = *i + 1; format[curri] != '\0'; curri++)
 	{
 		if (is_digit(format[curri]))
-
 		{
 
 			width *= 10;
@@ -22,7 +21,6 @@ int getWidth(const char *format, int *i, va_list list)
 			width += format[curri] - '0';
 		}
 		else if (format[curri] == '*')
-
 		{
 
 			curri++;
@@ -32,8 +30,7 @@ int getWidth(const char *format, int *i, va_list list)
 			break;
 		}
 		else
-
-			break;
+		break;
 	}
 
 	*i = curri - 1;
