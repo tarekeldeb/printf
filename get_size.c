@@ -24,13 +24,8 @@ int getSize(const char *format, int *i)
 	else if (format[curr_i] == 'h')
 		size = S_SHORT;
 	if (size == 0)
-<<<<<<< HEAD
 	*i = curr_i - 1;
 	else
 	*i = curr_i;
-=======
-		*i = curr_i - 1;
-	else *i = curr_i;
->>>>>>> 4191bb2c89ae74a4e498330d0fd7188e960fd590
 	return (size);
 }
