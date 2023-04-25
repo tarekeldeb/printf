@@ -30,26 +30,26 @@ int _printf (const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			buffer[bufferIndex++] = format[i];
-			if (bufferIndex == BUFF_SIZE)
-				printBuffer(buffer, &bufferIndex);
+			buffer[bufferINdex++] = format[i];
+			if (bufferINdex == BUFF_SIZE)
+				printBuffer(buffer, &bufferINdex);
 			printedChars++;
 		}
 		else
 		{
-			printBuffer(buffer, bufferIndex);
+			printBuffer(buffer, &bufferINdex);
 			flags = getFlags(format, &i);
 			width = getWidth(format, &i, args);
-			precision = get_precision(format, &i, args);
+			percision = getPrecision(format, &i, args);
 			size = getSize(format, &i);
 			++i;
-			printed = handlePrint(format, &i, args, buffer, flags, width, precision, size);
+			printed = handle_print(format, &i, args, buffer, flags, width, percision, size);
 			if (printed == 1)
 				return (-1);
 			printedChars += printed;
 		}
 	}
-	pritnBuffer(buffer, &bufferIndex);
+	printBuffer(buffer, &bufferINdex);
 	va_end(args);
-	return (pritned_chars);
+	return (printedChars);
 }
