@@ -15,12 +15,12 @@ void printBuffer(char buffer[], int *bufferIndex)
  * @format: format
  * Return: Printed chars
  */
-int _printf (const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int i, printed, printedChars = 0;
 	int flags, width, percision, size, bufferINdex = 0;
 	va_list args;
-	char buffer [BUFF_SIZE];
+	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
@@ -43,7 +43,8 @@ int _printf (const char *format, ...)
 			percision = getPrecision(format, &i, args);
 			size = getSize(format, &i);
 			++i;
-			printed = handle_print(format, &i, args, buffer, flags, width, percision, size);
+			printed = handle_print(format, &i, args, buffer,
+				flags, width, percision, size);
 			if (printed == 1)
 				return (-1);
 			printedChars += printed;
