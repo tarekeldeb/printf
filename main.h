@@ -18,8 +18,7 @@
 #define S_SHORT 1
 /**
  * struct fmt - Struct op
- *
- * @fmt: The format.
+ * @fmt: Format.
  * @fn: The function associated.
  * @fm_t: The function associated.
  */
@@ -27,32 +26,52 @@ typedef struct fmt
 {
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
-}fmt_t;
-int handle_print(const char *fmt, int *i, va_list list, char buffer[], int flags, int width, int precision, int size);
+} fmt_t;
+int handle_print(const char *fmt, int *i, va_list list, char buffer[],
+	int flags, int width, int precision, int size);
 
-int _printf (const char *format, ...);
+int _printf(const char *format, ...);
 void printBuffer(char buffer[], int *bufferIndex);
-int printChar(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printString(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printPercent(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printInt(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printBinary(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printUnsigned(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printOctal(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printHexadecimal(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printHexaUpper(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printHexa(va_list types, char map_to[], char buffer[], int flags, char flag_ch, int width, int precision, int size);
-int printPointer(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printNonPrintable(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printReverse(va_list types, char buffer[], int flags, int width, int precision, int size);
-int printRot13string(va_list types, char buffer[], int flags, int width, int precision, int size);
+int printChar(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printString(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printPercent(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printInt(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printBinary(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printUnsigned(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printOctal(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printHexadecimal(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printHexaUpper(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printHexa(va_list types, char map_to[], char buffer[], int flags,
+	char flag_ch, int width, int precision, int size);
+int printPointer(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printNonPrintable(va_list types, char buffer[],
+	int flags, int width, int precision, int size);
+int printReverse(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
+int printRot13string(va_list types, char buffer[], int flags,
+	int width, int precision, int size);
 int getSize(const char *format, int *i);
 int getPrecision(const char *format, int *i, va_list list);
-int handle_write_char(char c, char buffer[], int flags, int width, int precision, int size);
-int write_number(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size);
-int write_num(int ind, char buffer[], int flags, int width, int prec, int length, char padd, char extra_c);
-int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size);
-int write_pointer(char buffer[], int ind, int length, int width, int flags, char padd, char extra_c, int padd_start);
+int handle_write_char(char c, char buffer[], int flags,
+	int width, int precision, int size);
+int write_number(int is_negative, int ind, char buffer[],
+	int flags, int width, int precision, int size);
+int write_num(int ind, char buffer[], int flags,
+	int width, int prec, int length, char padd, char extra_c);
+int write_unsgnd(int is_negative, int ind, char buffer[],
+	int flags, int width, int precision, int size);
+int write_pointer(char buffer[], int ind, int length,
+	int width, int flags, char padd, char extra_c, int padd_start);
 int is_printable(char c);
 int append_hexa_code(char ascii_code, char buffer[], int i);
 int is_digit(char c);
